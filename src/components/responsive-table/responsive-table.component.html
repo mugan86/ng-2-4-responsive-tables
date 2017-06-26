@@ -1,0 +1,15 @@
+<table>
+  <thead [ngStyle]="titleStyle">
+    <tr>
+      <ng-template  ngFor [ngForOf]="data.titles" let-titleElement let-i = "index">
+          <th [style.width] = "data.widths[i]">{{titleElement}}</th>
+      </ng-template>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let number of createRange(data.data.length); let row = index">
+       <td *ngFor="let itemNumber of createRange(data.data[row].length); let column = index" 
+            [attr.data-label]="data.titles[column]">{{data.data[row][column]}}</td>
+    </tr>
+  </tbody>
+</table>
